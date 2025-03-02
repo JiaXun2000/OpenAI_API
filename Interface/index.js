@@ -1,3 +1,4 @@
+// #######################################################Version One######################################################### 
 // require('dotenv').config({ path: __dirname + '/../.env' });
 // console.log("Loaded API Key:", process.env.OPENAI_API_KEY);
 
@@ -35,7 +36,9 @@
 // }
 
 // callOpenAI();
+// ################################################################################################################ 
 
+// #######################################################Version Two######################################################### 
 require('dotenv').config({ path: __dirname + '/../.env' });
 // console.log("Loaded API Key:", process.env.OPENAI_API_KEY);
 
@@ -84,3 +87,36 @@ rl.question('请输入您的问题: ', (userInput) => {
   callOpenAI(userInput);
   rl.close();
 });
+// ################################################################################################################ 
+
+// #######################################################Version Format######################################################### 
+// // index.js
+// import dotenv from 'dotenv';
+// dotenv.config();
+
+// import readline from 'readline/promises';
+// import { stdin as input, stdout as output } from 'process';
+// import OpenAI from 'openai';
+
+// // Create an OpenAI client instance and pass in the API Key
+// const openai = new OpenAI({
+//   apiKey: process.env.OPENAI_API_KEY,
+// });
+
+// // Use the readline/promises module to create an interactive interface that waits for user input questions
+// const rl = readline.createInterface({ input, output });
+// const userQuestion = await rl.question('请输入您的问题: ');
+// rl.close();
+
+// // Send request to OpenAI API
+// const completion = await openai.chat.completions.create({
+//   model: 'gpt-4o',
+//   messages: [
+//     { role: 'developer', content: 'You are a helpful assistant.' },
+//     { role: 'user', content: userQuestion }
+//   ],
+//   store: true, 
+// });
+
+// // Output the answer returned by OpenAI
+// console.log(completion.choices[0].message);
